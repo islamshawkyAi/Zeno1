@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070914">
+  <meta name="description" content="ZENO — More Than Just Chat">
+  <title>ZENO — More Than Just Chat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash" aria-label="ZENO">
+    <div class="splash-glow"></div>
+    <img src="assets/logo/zeno-logo.svg" alt="ZENO" class="splash-logo">
+    <div class="splash-line"></div>
+    <p>MORE THAN JUST CHAT</p>
+  </div>
+
+  <main id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/logo/zeno-logo.svg" alt="ZENO">
+      </div>
+      <div class="status"><span></span> ZENO</div>
+    </header>
+
+    <section id="authView" class="auth-card">
+      <div class="eyebrow">WELCOME TO ZENO</div>
+      <h1>تواصل بشكل مختلف.</h1>
+      <p class="muted">سجّل برقم هاتفك واستقبل رمز التحقق عبر SMS.</p>
+
+      <label for="countrySearch">الدولة</label>
+      <input id="countrySearch" type="search" placeholder="ابحث عن الدولة أو كودها">
+
+      <div id="countryList" class="country-list" role="listbox"></div>
+
+      <label for="phone">رقم الهاتف</label>
+      <div class="phone-row">
+        <span id="dialCode" class="dial-code">+20</span>
+        <input id="phone" inputmode="tel" autocomplete="tel" placeholder="10xxxxxxxx" dir="ltr">
+      </div>
+
+      <button id="sendOtp" class="primary">إرسال رمز التحقق</button>
+
+      <div id="otpBox" class="otp-box" hidden>
+        <label for="otp">رمز التحقق</label>
+        <input id="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" dir="ltr">
+        <button id="verifyOtp" class="primary">تأكيد الدخول</button>
+        <button id="resendOtp" class="ghost" disabled>إعادة الإرسال <span id="timer"></span></button>
+      </div>
+
+      <div id="message" class="message" role="status"></div>
+      <small>بيانات الاتصال تُرسل مباشرة إلى Supabase باستخدام مفتاح Publishable فقط.</small>
+    </section>
+
+    <section id="homeView" class="home-card" hidden>
+      <div class="eyebrow">ZENO HOME</div>
+      <h2>أهلاً بك في ZENO 👋</h2>
+      <p class="muted">تم تسجيل الدخول بنجاح. هذه واجهة الويب التجريبية الأولى.</p>
+      <div class="feature-grid">
+        <div>💬<b>Chats</b><span>دردشات</span></div>
+        <div>🎬<b>Reels</b><span>فيديوهات قصيرة</span></div>
+        <div>🔴<b>Live</b><span>بث مباشر</span></div>
+        <div>✨<b>ZENO+</b><span>إنشاء محتوى</span></div>
+      </div>
+      <button id="logout" class="ghost">تسجيل الخروج</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
